@@ -1,8 +1,6 @@
 // Package models contains the structs that will hold the various data from the db after fetching
 package models
 
-import "time"
-
 type (
 	AccountType     string
 	TransactionType string
@@ -29,7 +27,7 @@ type Account struct {
 	AccContact   string
 	AccAddress   string
 	AccArchived  bool
-	AccCreatedAt time.Time
+	AccCreatedAt string
 }
 
 type BusinessAccount struct {
@@ -49,6 +47,6 @@ type TransactionItem struct {
 	TransAmount        int64
 	TransType          TransactionType
 	TransRemarks       string
-	TransCreatedAt     time.Time
+	TransCreatedAt     string
 	TransReversalOf    *string
 }

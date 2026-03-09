@@ -11,17 +11,17 @@ import (
 
 func main() {
 	// Connect to the SQLite database
-	db, err := sql.Open("sqlite", "./mmeMain.db")
+	db, err := sql.Open("sqlite", "./mmeMain.db?_pragma=foreign_keys(1)")
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	_, err = db.Exec("PRAGMA forein_keys = ON;")
+	var fk int
+	err = db.QueryRow("PRAGMA foreign_keys;").Scan(&fk)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("enforced Forien Keys")
-
+	fmt.Println("Foreign keys enabled:", fk == 1)
 	defer db.Close()
 	fmt.Println("Connected to the SQLite database successfully.")
 
