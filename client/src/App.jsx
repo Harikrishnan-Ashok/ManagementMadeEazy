@@ -1,10 +1,10 @@
-import AddNewInventoryPage from "./pages/AddNewInventoryPage";
+import InventoryHomePage from "./pages/InventoryHomePage";
 
 export default function App() {
 
 	return (
 		<>
-			<AddNewInventoryPage />
+			<InventoryHomePage />
 		</>
 	)
 }

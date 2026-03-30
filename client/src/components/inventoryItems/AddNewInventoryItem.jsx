@@ -1,3 +1,4 @@
+
 import {
 	Box,
 	Button,
@@ -11,16 +12,14 @@ import {
 	TextField
 } from "@mui/material";
 import { useState } from "react";
+import { callAddNewInventoryItemApi } from "./utils";
 
-export default function AddNewInventoryPage() {
-
+export default function AddNewInventoryItem() {
 	const [selectedCategory, setSelectedCategory] = useState("tyre");
-
 	const handleAddNewInventoryItemSubmit = (event) => {
 		event.preventDefault();
-
 		const data = new FormData(event.currentTarget);
-		console.log(Object.fromEntries(data));
+		callAddNewInventoryItemApi((Object.fromEntries(data)))
 	};
 
 	return (
@@ -62,6 +61,7 @@ export default function AddNewInventoryPage() {
 						<FormControl>
 							<FormLabel>Product Description</FormLabel>
 							<RadioGroup
+								defaultValue={"tubed"}
 								row
 								name="tyre-variation"
 							>
