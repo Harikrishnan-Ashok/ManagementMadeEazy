@@ -1,0 +1,61 @@
+package handlers
+
+/*
+
+[1] POST /create_accounts :=> create new account and insert into accounts table
+===Request as DATA===
+acc_type 			(business, staff, consumer) [string]
+acc_name 			[string]
+acc_contact 		(contact number) [string]
+acc_address			[string]
+
+===Server Logic===
+generate acc_id [uuid]
+set acc_archived = false
+set acc_created_at
+
+===Return===
+{
+normal success and error response based on db result
+}
+
+=====================================================================================================
+[2] GET /accounts/{acc_id} :=> get details of a single account
+===Request as Params===
+acc_id [uuid]
+
+===Return===
+{
+1 row from accounts table with matching acc_id
+}
+=
+
+=====================================================================================================
+[3] GET /accounts :=> list accounts
+===Optional Query Params===
+archived=true		(show only archived accounts)
+archived=false		(show only active accounts)
+
+===Return===
+{
+array of rows from accounts table
+}
+=
+
+=====================================================================================================
+[4] PATCH /accounts/{acc_id} :=> archive / unarchive account
+===Request as Params===
+acc_id [uuid]
+
+===Request as DATA===
+acc_archived [bool]
+
+===Server Logic===
+true  => archive account
+false => unarchive account
+
+===Return===
+{
+normal success and error response based on db result
+}
+*/

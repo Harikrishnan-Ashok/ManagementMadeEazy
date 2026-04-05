@@ -4,7 +4,6 @@ package repos
 import (
 	"database/sql"
 	"log"
-	"time"
 
 	"Harikrishnan-Ashok/ManagementMadeEazy/server/internal/models"
 )
@@ -12,11 +11,11 @@ import (
 // InsertIntoAccounts to insert 1 Account with its details into the db
 func InsertIntoAccounts(db *sql.DB, data *models.Account) (sql.Result, error) {
 	query := `INSERT INTO ACCOUNTS(acc_id,acc_type,acc_name,acc_contact,acc_address,acc_archived,acc_created_at) VALUES (?,?,?,?,?,?,?)`
-	res, err := db.Exec(query, data.AccID, data.AccType, data.AccName, data.AccContact, data.AccAddress, false, time.Now())
+	res, err := db.Exec(query, data.AccID, data.AccType, data.AccName, data.AccContact, data.AccAddress, data.AccArchived, data.AccCreatedAt)
 	if err != nil {
+		log.Println(err)
 		return res, err
 	}
-	log.Println("data inserted successfully")
 	return res, nil
 }
 
