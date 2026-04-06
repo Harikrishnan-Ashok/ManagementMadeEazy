@@ -18,20 +18,8 @@ set acc_created_at
 {
 normal success and error response based on db result
 }
-
 =====================================================================================================
-[2] GET /accounts/{acc_id} :=> get details of a single account
-===Request as Params===
-acc_id [uuid]
-
-===Return===
-{
-1 row from accounts table with matching acc_id
-}
-=
-
-=====================================================================================================
-[3] GET /accounts :=> list accounts
+[2] GET /accounts :=> list accounts
 ===Optional Query Params===
 archived=true		(show only archived accounts)
 archived=false		(show only active accounts)
@@ -43,12 +31,24 @@ array of rows from accounts table
 =
 
 =====================================================================================================
+[3] GET /accounts/{acc_id} :=> get details of a single account
+===Request as Params===
+acc_id [uuid]
+
+===Return===
+{
+1 row from accounts table with matching acc_id
+}
+=
+
+
+=====================================================================================================
 [4] PATCH /accounts/{acc_id} :=> archive / unarchive account
 ===Request as Params===
 acc_id [uuid]
 
 ===Request as DATA===
-acc_archived [bool]
+	feild that need to be updated 
 
 ===Server Logic===
 true  => archive account
