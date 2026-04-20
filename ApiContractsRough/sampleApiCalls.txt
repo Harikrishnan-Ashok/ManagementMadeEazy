@@ -1,0 +1,39 @@
+#######################################################################
+Accounts: 
+
+1 create account
+-----------------
+curl --request POST \
+  --url http://localhost:8080/create_account \
+  --header 'Content-Type: ' \
+  --data '{"acc_type":"CONSUMER","acc_name":"testACC_1","acc_contact":"8078783349","acc_address":"Pala,Kottayam"}'
+
+2 list accounts
+---------------
+curl --request GET \
+ --url http://localhost:8080/accounts \
+ --header 'Content-Type: ' \
+ --data '{"acc_type":"CONSUMER","acc_name":"testACC_1","acc_contact":"8078783349","acc_address":"Pala,Kottayam"}'
+
+
+
+
+
+
+
+#######################################################################
+ TRANSACTION
+
+ 1 create Transaction
+ --------------------
+curl --request POST \
+ --url http://localhost:8080/transaction \
+ --header 'Content-Type: application/json' \
+ --data '{
+    "credit_acc_id":"30d98879-1829-4d18-afb4-8e9509ce3570",
+    "debit_acc_id":"b0967ba9-2aca-4b30-aa2f-c5d43bf81661",
+    "trans_amount":100,
+    "trans_remarks":"testing",
+    "trans_type":"SALE"
+  }'
+
