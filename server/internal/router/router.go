@@ -17,6 +17,7 @@ func SetupRouter(db *sql.DB) *http.ServeMux {
 	mux.HandleFunc("/update_account/", handlers.UpdateAccountDetailsByID(db))
 
 	// transacation api routes
-	mux.HandleFunc("/transaction", handlers.CreateTransactionHandler(db))
+	mux.HandleFunc("/create_transaction", handlers.CreateTransactionHandler(db))
+	mux.HandleFunc("/transactions", handlers.GetTransactionList(db))
 	return mux
 }

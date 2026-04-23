@@ -131,7 +131,7 @@ If both: WHERE credit_acc_id = acc_id OR debit_acc_id = acc_id
 
 ### Response
 
-{ "data": \[ ...transactions... \], "page": 1, "next_page": 2,
+{ "data": \[ ...transactions... \], "page": 1, "page": 2,
 "has_more": true }
 
 ---

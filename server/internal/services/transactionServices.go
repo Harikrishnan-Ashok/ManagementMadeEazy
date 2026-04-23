@@ -30,3 +30,27 @@ func CreateTransactionService(db *sql.DB, req dto.CreateTransactionDTO) error {
 	}
 	return nil
 }
+
+func ListTransactionService(db *sql.DB, req dto.TransactionFiltersDto) ([]*models.TransactionItem, error) {
+	result := []*models.TransactionItem{}
+
+	transaction, err := repos.GetTransactionRows(db, req)
+	if err != nil {
+		return nil, err
+	}
+
+	for _, trans := range transaction {
+		result = append(result, &models.TransactionItem{
+			TransID:            trans.TransID,
+			TransCreditedAccID: trans.TransCreditedAccID,
+			TransDebitedAccID:  trans.TransDebitedAccID,
+			TransAmount:        trans.TransAmount,
+			TransType:          trans.TransType,
+			TransRemarks:       trans.TransRemarks,
+			TransCreatedAt:     trans.TransCreatedAt,
+			TransReversalOf:    trans.TransReversalOf,
+		})
+	}
+
+	return result, nil
+}

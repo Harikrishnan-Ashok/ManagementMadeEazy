@@ -2,8 +2,6 @@ package dto
 
 import (
 	"Harikrishnan-Ashok/ManagementMadeEazy/server/internal/models"
-
-	"github.com/google/uuid"
 )
 
 type CreateAccountDTO struct {
@@ -11,14 +9,6 @@ type CreateAccountDTO struct {
 	AccName    string             `json:"acc_name"`
 	AccContact string             `json:"acc_contact"`
 	AccAddress string             `json:"acc_address"`
-}
-
-type CreateTransactionDTO struct {
-	CreditAccID  uuid.UUID              `json:"credit_acc_id"`
-	DebitAccID   uuid.UUID              `json:"debit_acc_id"`
-	TransAmount  int64                  `json:"trans_amount"`
-	TransRemarks string                 `json:"trans_remarks"`
-	TransType    models.TransactionType `json:"trans_type"`
 }
 
 type SingleAccountDetails struct {
