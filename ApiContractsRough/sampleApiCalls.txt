@@ -37,3 +37,8 @@ curl --request POST \
     "trans_type":"SALE"
   }'
 
+
+2 list all Transaction
+----------------------
+curl --request GET  --url http://localhost:8080/transactions | jq
+
