@@ -51,6 +51,25 @@ CREATE TABLE IF NOT EXISTS transactions (
         ON DELETE RESTRICT
 );
 
+CREATE TABLE IF NOT EXISTS stock (
+	stock_id TEXT PRIMARY KEY,
+	stock_type TEXT NOT NULL,
+	stock_name TEXT NOT NULL,
+	stock_brand TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS stock_history (
+    id TEXT PRIMARY KEY,
+    item_id TEXT NOT NULL,
+    transaction_type TEXT NOT NULL,
+    quantity INTEGER NOT NULL,
+    remark TEXT NOT NULL,
+    created_at  TEXT NOT NULL,
+
+		FOREIGN KEY (item_id)
+			REFERENCES stock(stock_id)
+);
+
 CREATE INDEX idx_transaction_credit
     ON transactions(credit_acc_id);
 
