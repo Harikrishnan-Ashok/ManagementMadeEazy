@@ -22,12 +22,9 @@ func SetupRouter(db *sql.DB) *http.ServeMux {
 	mux.HandleFunc("/transactions", handlers.GetTransactionList(db))
 
 	// stock api routes
-	mux.HandleFunc("/add_new_item",func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println("api to add new item")
-	}
+	mux.HandleFunc("/add_new_item",)
 
 	mux.HandleFunc("/move_item",func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println("api to add new item")
 	}
 	return mux
 }

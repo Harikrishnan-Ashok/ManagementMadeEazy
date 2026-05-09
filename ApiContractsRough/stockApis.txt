@@ -1,0 +1,25 @@
+POST : "/stock"
+	-> to add a new stock with 
+		item_id
+		item_type
+		item_name
+		item_brand
+		
+GET : "/stock"
+	-> to return a [] of product names
+
+==========================================
+
+POST /stock-transactions
+{
+  "stock_id": "uuid",
+  "transaction_type": "SALE",
+  "quantity": 4,
+  "remark": "Invoice #12"
+}
+
+based on the trancsation type do the nessery call
+====================================================
+
+GET /stocks/:id/details
+	-> to get the complete overview of every stock {unless uuid is specified}
