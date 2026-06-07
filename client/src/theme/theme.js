@@ -2,7 +2,7 @@ import { createTheme } from "@mui/material";
 
 export const basetheme = createTheme({
 	typography: {
-		fontFamily: "Goldman",
+		fontFamily: "Sansation",
 		fontSize: 14
 	}
 })
